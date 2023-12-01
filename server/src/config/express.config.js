@@ -5,6 +5,10 @@ const app = express();
 const router = require('../routes');
 const { MulterError } = require('multer');
 const { ZodError } = require('zod');
+const cors = require('cors');
+
+//cors
+app.use(cors())
 
 //body-parser
 app.use(express.json());
