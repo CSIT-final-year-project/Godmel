@@ -17,7 +17,10 @@ const userSchemaDef = new mongoose.Schema({
         enum: ['admin', 'supplier', 'rider', 'farmer', 'consumer'],
         default: "customer"
     },
-    token: String,
+    token: {
+        type: String,
+        default: null
+    },
     image: String,
     status: {
         type: String,
@@ -28,8 +31,14 @@ const userSchemaDef = new mongoose.Schema({
         type: String,
         default: null
     },
-    resetToken: String,
-    resetExpiry: Date
+    resetToken: {
+        type: String,
+        default: null
+    },
+    resetExpiry: {
+        type: String,
+        default: null
+    }
 }, {
     timestamps: true,
     autoCreate: true,
