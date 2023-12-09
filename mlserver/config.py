@@ -1,0 +1,1 @@
+open_weather_key = "3eb4f1f6009603675f9f8a403a32f0ab"
