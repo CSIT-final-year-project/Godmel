@@ -11,14 +11,14 @@ const myStorage = multer.diskStorage({
     },
     filename: (req, file, cb)=>{
         let random = Math.ceil(Math.random()*9999);
-        let ext = file.originalname.split('.').pop();
+        let ext = (file.originalname.split('.').pop()).toLowerCase();
         let filename = Date.now() + '_' + random + '.' + ext;
         cb(null, filename)
     }
 })
 
 const imageFilter = (req, file, cb)=>{
-    let ext = file.originalname.split('.').pop();
+    let ext = (file.originalname.split('.').pop()).toLowercase();
     let allowed = ['jpg', 'png', 'jpeg', 'svg', 'bmp', 'webp'];
 
     if(allowed.includes(ext)){

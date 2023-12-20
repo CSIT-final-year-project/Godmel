@@ -64,7 +64,6 @@ app.use((error, req, res, next)=>{
         result = msgBody;
         message = "Validation Fail"
     }
-    console.log(code);
     //handle
     res.status(code).json({
         result: result,
