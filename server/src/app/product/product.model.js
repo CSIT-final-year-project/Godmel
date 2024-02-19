@@ -7,21 +7,24 @@ const AttributeSchema = new mongoose.Schema({
 const reviewSchema = new mongoose.Schema({
     user: {
         type: mongoose.Types.ObjectId,
-        ref: "User",
-        default:  null
+        ref: 'User',
+        default: null
     },
     rating: {
         type: Number,
-        required: false,
-        max: 5
+        required: true
     },
     comment: {
         type: String,
         required: true
     }
+}, {
+    timestamps: true,
+    autoCreate: true,
+    autoIndex: true
 })
 
-const SeedSchema = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
     title: {
         type: String,
         require: true,
@@ -31,13 +34,7 @@ const SeedSchema = new mongoose.Schema({
         type: String,
         unique: true,
     },
-    category: [
-        {
-            type: mongoose.Types.ObjectId,
-            ref: 'Category',
-            default: null
-        },
-    ],
+    summary: String,
     price: {
         type: Number,
         min: 1,
@@ -56,15 +53,6 @@ const SeedSchema = new mongoose.Schema({
         enum: ['active', 'inactive'],
         default: 'inactive'
     },
-    seller: {
-        type: mongoose.Types.ObjectId,
-        ref: 'User',
-        default: null
-    },
-    attributes: [AttributeSchema],
-    tags: [String],
-    summary: String,
-    description: String,
     images: [String],
     createdBy: {
         type: mongoose.Types.ObjectId,
@@ -81,10 +69,12 @@ const SeedSchema = new mongoose.Schema({
         type: Number,
         default: 0
     }
-},{
+},
+{
     timestamps: true,
     autoCreate: true,
-    autoIndex: true
-})
+    autoIndex: true,
+});
 
-const SeedModel = mongoose.model("Seed", SeedSchema);
+const ProductModel = mongoose.model('Product', ProductSchema);
+module.exports = ProductModel;
