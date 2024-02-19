@@ -68,7 +68,12 @@ const ProductSchema = new mongoose.Schema({
     numReviews: {
         type: Number,
         default: 0
-    }
+    },
+    seller: {
+        type: mongoose.Types.ObjectId,
+        ref: "User",
+        require: false
+    },
 },
 {
     timestamps: true,

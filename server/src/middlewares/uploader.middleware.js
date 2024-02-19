@@ -1,6 +1,7 @@
 const multer = require('multer');
 const fs = require('fs');
 
+
 const myStorage = multer.diskStorage({
     destination: (req, file, cb)=>{
         let path = req.uploadDir??"./public/uploads/others";
@@ -18,7 +19,7 @@ const myStorage = multer.diskStorage({
 })
 
 const imageFilter = (req, file, cb)=>{
-    let ext = (file.originalname.split('.').pop()).toLowercase();
+    let ext = (file.originalname.split('.').pop()).toLowerCase();
     let allowed = ['jpg', 'png', 'jpeg', 'svg', 'bmp', 'webp'];
 
     if(allowed.includes(ext)){

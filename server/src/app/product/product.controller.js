@@ -151,6 +151,7 @@ class ProductController{
             payload.rating = Number(payload.rating);
 
             const alreadyReviewed = (await ProductModel.findById(id)).reviews.map(r => r.user.toString() === req.authUser._id.toString()).pop();
+
             if(alreadyReviewed){
                 next({code: 400, message: "Product already reviewed"});
             }

@@ -3,9 +3,10 @@ const checkAccess = require('../../middlewares/check-access.middleware')
 const CheckPermission = require('../../middlewares/rbac.middleware')
 const uploader = require('../../middlewares/uploader.middleware')
 const ValidateRequest = require('../../middlewares/validate-request.middleware')
-const { SeedValidatorSchema } = require('./seed.validator')
+const { SeedValidatorSchema, seedReviewSchema } = require('./seed.validator')
 const seedCtrl = require('./seed.controller')
 const seedSvc = require('./seed.service')
+const validateRequest = require('../../middlewares/validate-request.middleware')
 const router = require('express').Router()
 
 const dirSetup = (req, res, next) => {
@@ -33,7 +34,7 @@ router.route('/')
     )
 
 router.route('/:id/reviews')
-    .post(CheckLogin, CheckPermission('farmer'), seedCtrl.createSeedReview)
+    .post(CheckLogin, CheckPermission('farmer'), validateRequest(seedReviewSchema), seedCtrl.createSeedReview)
     .get(seedCtrl.listReview);
 
 router.route('/:id')

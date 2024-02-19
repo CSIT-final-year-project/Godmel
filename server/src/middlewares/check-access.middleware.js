@@ -3,7 +3,7 @@ const checkAccess = (svc)=>{
         try{
             let id = req.params.id;
             console.log(id)
-            let data = await svc.getCategoryByFilter({_id: id})
+            let data = await svc.getByFilter({_id: id})
             if(!data){
                 throw {code: 404, message: "contain doesn't exist" };
             }

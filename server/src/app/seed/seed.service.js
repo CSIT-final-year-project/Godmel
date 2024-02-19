@@ -76,8 +76,6 @@ class SeedService{
     getData = async(filter, {limit= 15, skip= 0}, sort ={_id: "desc", title: "asc"}) => {
         try {
             let data = await SeedModel.find(filter)
-                .populate("category", ['_id','title','slug','status'])
-                .populate("brand", ['_id','title','slug','status'])
                 .populate("createdBy", ['_id', 'name'])
                 .sort(sort)
                 .skip(skip)
@@ -90,58 +88,57 @@ class SeedService{
 
     getBySlugWithSeed = async(filter) => {
         try {
-            const pipeline = [
-                {
-                    $match: {
-                        ...filter
-                    }
-                },
-                {
-                  $lookup: {
-                    from: 'users', 
-                    localField: 'createdBy', 
-                    foreignField: '_id', 
-                    as: 'createdBy'
-                  }
-                }, {
-                  $lookup: {
-                    from: 'categories', 
-                    localField: 'parentId', 
-                    foreignField: '_id', 
-                    as: 'parentId'
-                  }
-                }, {
-                  $unwind: {
-                    path: '$parentId',
-                    preserveNullAndEmptyArrays: true
-                  }
-                }, {
-                  $unwind: {
-                    path: '$createdBy',
-                    preserveNullAndEmptyArrays: true
-                  }
-                }, {
-                  $project: {
-                    _id: '$_id', 
-                    title: '$title', 
-                    description: '$description', 
-                    slug: '$slug', 
-                    status: '$status', 
-                    parentId: '$parentId', 
-                    image: '$image', 
-                    createdAt: '$createdAt', 
-                    updatedAt: '$updatedAt', 
-                    createdBy: {
-                      _id: '$createdBy._id', 
-                      name: '$createdBy.name'
-                    }
-                  }
-                }
-              ]
-            let data = await SeedModel.aggregate(pipeline)
-            // let data = await SeedModel.findOne(filter)
-            //  .populate("parentId", ['_id', "title"])
-            //.populate('cretedBy', ['_id', 'name'])
+            // const pipeline = [
+            //     {
+            //         $match: {
+            //             ...filter
+            //         }
+            //     },
+            //     {
+            //       $lookup: {
+            //         from: 'users', 
+            //         localField: 'createdBy', 
+            //         foreignField: '_id', 
+            //         as: 'createdBy'
+            //       }
+            //     }, {
+            //       $lookup: {
+            //         from: 'categories', 
+            //         localField: 'parentId', 
+            //         foreignField: '_id', 
+            //         as: 'parentId'
+            //       }
+            //     }, {
+            //       $unwind: {
+            //         path: '$parentId',
+            //         preserveNullAndEmptyArrays: true
+            //       }
+            //     }, {
+            //       $unwind: {
+            //         path: '$createdBy',
+            //         preserveNullAndEmptyArrays: true
+            //       }
+            //     }, {
+            //       $project: {
+            //         _id: '$_id', 
+            //         title: '$title', 
+            //         description: '$description', 
+            //         slug: '$slug', 
+            //         status: '$status', 
+            //         parentId: '$parentId', 
+            //         image: '$image', 
+            //         createdAt: '$createdAt', 
+            //         updatedAt: '$updatedAt', 
+            //         createdBy: {
+            //           _id: '$createdBy._id', 
+            //           name: '$createdBy.name'
+            //         }
+            //       }
+            //     }
+            //   ]
+            // let data = await SeedModel.aggregate(pipeline)
+            let data = await SeedModel.findOne(filter)
+            .populate('createdBy', ['_id', 'name'])
             if(!data) {
                 throw {code: 404, message: "Seed Does not exists"}
             }
@@ -155,8 +152,6 @@ class SeedService{
         try {
             // {_id: id} => findById(id)
             let data = await SeedModel.findOne(filter)
-            .populate("category", ['_id','title','slug','status'])
-            .populate("brand", ['_id','title','slug','status'])
             .populate("createdBy", ['_id', 'name'])
             if(!data) {
                 throw {code: 404, message: "Seed Does not exists"}

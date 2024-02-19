@@ -188,7 +188,14 @@ class SeedController{
     listReview = async(req, res, next)=>{
         try{
             let review = await seedSvc.getReview(req.params.id);
-            return review;
+            res.json({
+                result: review,
+                message: "Review fetched successfully",
+                meta: {
+                    total: review.total
+                }
+            })
+
         }
         catch(except){
             next(except);

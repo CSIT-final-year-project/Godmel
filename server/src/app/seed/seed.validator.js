@@ -5,8 +5,12 @@ const SeedValidatorSchema = z.object({
     summary: z.string().nullable(),
     price: z.string().regex(/^\d+$/).min(1),
     discount: z.string().regex(/^\d+$/).min(0).max(99).nullable(),
-    tags: z.string().nullable(),
     status: z.string().regex(/active|inactive/).default('inactive')
 })
 
-module.exports = {SeedValidatorSchema}
+const seedReviewSchema = z.object({
+    comment: z.string().max(100),
+    rating: z.string().regex(/^\d+$/)
+})
+
+module.exports = {SeedValidatorSchema, seedReviewSchema}
