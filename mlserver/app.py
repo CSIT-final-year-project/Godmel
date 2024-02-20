@@ -1,6 +1,6 @@
 import pickle
 
-from flask import Flask, request
+from flask import Flask, request, json
 from markupsafe import Markup
 import pandas as pd
 import config
@@ -41,7 +41,7 @@ app = Flask(__name__)
 @ app.route('/crop-predict', methods=['POST'])
 def crop_prediction():
     title = 'Crop Recommendation Module'
-
+    print("hello")
     if request.method == 'POST':
         N = int(request.form['nitrogen'])
         P = int(request.form['phosphorous'])
@@ -72,7 +72,12 @@ def crop_prediction():
         else:
             result = "Sorry, we could not determine the best crop to be cultivated with the provided data."
 
-        return result
+        response = {
+            "result": result,
+            "message": "Crop Predicted"
+        }
+
+        return json.dumps(response)
     
 @ app.route('/fertilizer-predict', methods=['POST'])
 def fert_recommend():
@@ -112,12 +117,13 @@ def fert_recommend():
             key = "Klow"
 
     response = Markup(str(fertilizer_dic[key]))
-    # res = {
-    #     "result": response,
-    #     "message": "fertilizer recommendation successful",
-    # }
+    res = {
+            "result": response,
+            "message": "Recommended cure"
+        }
 
-    return response
+    return json.dumps(res)
+
     
 if __name__ == "__main__":
     app.run(debug=True,port=8000)

@@ -100,12 +100,18 @@ class AuthController{
                         }, process.env.JWT_SECRET, {
                             expiresIn: '1d'
                         });
-        
-                        const patData = {
+                        const user = {
                             userId: userDetail._id,
+                            name: userDetail.name, 
+                            role: userDetail.role
+                        }
+                        const patData = {
+                            user: user,
                             token: token,
                             refreshToken: refreshToken
                         }
+
+                        console.log(patData)
         
                         let response = await authSvc.patStore(patData);
         
