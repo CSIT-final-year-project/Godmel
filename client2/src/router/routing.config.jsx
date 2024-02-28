@@ -1,10 +1,24 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import * as layouts from "../pages/layouts/index"
+import * as layouts from "../pages/layouts"
+import * as landing from "../pages/landing"
+import * as banner from "../pages/cms/banner"
+import * as product from "../pages/cms/product"
+import * as seed from "../pages/cms/seed"
+import * as user from "../pages/cms/user"
+import PermissionCheck from "../pages/common/checkPermission.page";
 import { Error404 } from "../pages/common/error.page";
 import { ToastContainer } from "react-toastify";
-import HomePage from "../pages/landing/home.page";
-import CropRecommendationPage from "../pages/landing/croprecommendation.page";
-import CropCurePage from "../pages/landing/cropcure.page";
+import "react-toastify/dist/ReactToastify.min.css";
+import RegistrationPage from "../pages/home/auth/register";
+import SetPasswordPage from "../pages/home/auth/forget-password/set-password.page";
+import LoginPage from "../pages/home/auth/login";
+import AdminDashboard from "../pages/cms/dashboard/dashboard.page";
+import ChangePassword from "../pages/common/changePassword";
+import LogoutPage from "../pages/common/logout";
+import OrderList from "../pages/cms/order/order-list.page";
+import OrderLayout from "../pages/cms/order/order.layout";
+import CartPage from "../pages/common/cart";
+
 
 export const Routing = ()=>{
     return (
@@ -12,12 +26,71 @@ export const Routing = ()=>{
             <ToastContainer/>
             <BrowserRouter>
                 <Routes>
+
+                    {/* login free pages */}
                     <Route path="/" element={<layouts.HomeLayout/>}>
-                        <Route index element={<HomePage/>}/>
-                        <Route path="/crop-recommendation" element={<CropRecommendationPage/>}/>
-                        <Route path="/crop-cure" element={<CropCurePage/>}/>
+                        <Route index element={<landing.HomePage/>}/>
+                        <Route path="/crop-recommendation" element={<landing.CropRecommendationPage/>}/>
+                        <Route path="/crop-cure" element={<landing.CropCurePage/>}/>
+                        <Route path="/farmer-market" element={<landing.FarmerMarketPage/>}/>
+                        <Route path="/register" element={<RegistrationPage/>}/>
+                        <Route path="/login" element={<LoginPage/>}/>
+                        <Route path="/verify-token/:token" element={<SetPasswordPage/>}/>
                     </Route>
 
+                    {/* admin authorization need */}
+                    <Route path="/admin" element={<PermissionCheck accessBy={"admin"} Component={<layouts.CMSLayout />}>Content</PermissionCheck>}>
+                    
+                        <Route index element={<AdminDashboard/>}></Route>
+                    
+                        <Route path="banner" element={<banner.BannerLayout />}>
+                            <Route index element={<banner.BannerList />}></Route>
+                            <Route path="create" element={<banner.BannerCreate />}></Route>
+                            <Route path=":id" element={<banner.BannerEdit />}></Route>
+                        </Route>
+
+                        <Route path="product" element={<product.ProductLayout />}>
+                            <Route index element={<product.ProductList />}></Route>
+                            <Route path="create" element={<product.ProductCreate />}></Route>
+                            <Route path=":id" element={<product.ProductEdit />}></Route>
+                        </Route>
+
+                        <Route path="seed" element={<seed.SeedLayout />}>
+                            <Route index element={<seed.SeedList />}></Route>
+                            <Route path="create" element={<seed.SeedCreate />}></Route>
+                            <Route path=":id" element={<seed.SeedEdit />}></Route>
+                        </Route>
+
+                        <Route path="user" element={<user.UserLayout />}>
+                            <Route index element={<user.UserList />}></Route>
+                            <Route path="create" element={<user.UserCreate />}></Route>
+                            <Route path=":id" element={<user.UserEdit />}></Route>
+                        </Route>
+
+                        <Route path="order" element={<OrderLayout/>}>
+                            <Route index element={<OrderList/>}></Route>
+                        </Route>
+                        <Route path="change-password" element={<ChangePassword/>}/>
+                        <Route path="*" element={<Error404 />}/>
+                    </Route>
+
+                    {/* farmer authorization need */}
+                    <Route path="/farmer" element={<PermissionCheck accessBy={"farmer"} Component={<layouts.CMSLayout />}>Content</PermissionCheck>}>
+                    
+                        <Route index element={<AdminDashboard/>}></Route>
+
+                        <Route path="product" element={<product.ProductLayout />}>
+                            <Route index element={<product.ProductList />}></Route>
+                            <Route path="create" element={<product.ProductCreate />}></Route>
+                            <Route path=":id" element={<product.ProductEdit />}></Route>
+                        </Route>
+
+                        <Route path="*" element={<Error404 />}/>
+                    </Route>
+
+                    <Route path="/change-password" element={<ChangePassword/>}/>
+                    <Route path="/logout" element={<LogoutPage/>}/>
+                    <Route path="/cart" element={<CartPage/>}/>
                     <Route path="*" element={<Error404/>}/>
                 </Routes>
             </BrowserRouter>

@@ -20,7 +20,7 @@ const TablePagination = ({pagination, dataFetch }) => {
             }
 
             {
-            [...Array(pagination.pages)].map((item, ind) => (
+            [...Array(Math.max(0, pagination.pages))].map((item, ind) => (
                 <Pagination.Item key={ind} 
                 active={+pagination.currentPage === (ind+1) ? true : false}
                 onClick={(e) => {
