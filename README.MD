@@ -15,16 +15,10 @@ Farmers are not being paid deserving amount due to involvement of middlemen in g
         -Create Account
         -Browse Products 
         -Order crops
-    Supplier Profile
-        -Create Account
-        -Sell agro-supplies to farmer (Supplies CRUD)
-    Rider Profile
-        -Register By Admin
-        -Dashboard for order placed
-        -Get notified on order placed with farms address and consumer address (or farm address and supplier address)
     Admin
         -Create riders
         -View Orders and status
+        -Sell agro-supplies to farmer (Supplies CRUD)
 
 ## Modules
     auth
