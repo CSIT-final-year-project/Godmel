@@ -5,9 +5,11 @@ from markupsafe import Markup
 import pandas as pd
 import config
 import requests
+from flask_cors import CORS
 
 import numpy as np
 from utils.fertilizer import fertilizer_dic
+
 
 #model for crop recommendation
 crop_recommendation_model_path = './model/random-forest.pkl'
@@ -36,6 +38,9 @@ def weather_fetch(city):
         return None
 
 app = Flask(__name__)
+CORS(app, resources={r"/crop-predict": {"origins": "http://localhost:5173"}})
+CORS(app, resources={r"/fertilizer-predict": {"origins": "http://localhost:5173"}})
+
 
 #for crop prediction
 @ app.route('/crop-predict', methods=['POST'])

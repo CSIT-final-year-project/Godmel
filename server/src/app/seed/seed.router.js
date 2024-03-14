@@ -10,7 +10,7 @@ const validateRequest = require('../../middlewares/validate-request.middleware')
 const router = require('express').Router()
 
 const dirSetup = (req, res, next) => {
-    req.uploadDir = './public/uploads/seed'
+    req.uploadDir = './public/uploads/product'
     next()
 }
 

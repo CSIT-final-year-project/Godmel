@@ -16,22 +16,22 @@ const HomeHeaderComponent = () => {
     toggleTheme(theme);
   }
 
-useEffect(() => {
-  const fetchUserData = async () => {
-    try {
-      const loggedInUser = await authSvc.getLoggedInUser();
-      setUser(loggedInUser);
-    } catch (error) {
-      localStorage.removeItem("_au")
-      console.log(error)
-      navigate("/")
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const loggedInUser = await authSvc.getLoggedInUser();
+        setUser(loggedInUser);
+      } catch (error) {
+        localStorage.removeItem("_au")
+        console.log(error)
+        navigate("/")
 
-      // toast.error(error.message);
-    }
-  };
+        // toast.error(error.message);
+      }
+    };
 
-  fetchUserData();
-}, []);
+    fetchUserData();
+  }, []);
   return (<>
     <Navbar
       expand="lg"
@@ -58,9 +58,11 @@ useEffect(() => {
                 <NavLink to="/register" className={"nav-link"}>SignUp</NavLink>
               </> : <>
                 {
-                  user.role === "customer" ? <></> : <>
-                    <NavLink to={"/" + user.role} className={"nav-link"}>{user.name}</NavLink>
-                  </>
+                  user && user.role !== "customer" && (
+                    <NavLink to={`/${user.role}`} className="nav-link">
+                      {user.name}
+                    </NavLink>
+                  )
                 }
                 <Dropdown className="ms-auto ms-md-0 me-3 me-lg-4" align={"end"}>
                   <Dropdown.Toggle variant="link" className=" " id="dropdown-basic">
@@ -68,13 +70,18 @@ useEffect(() => {
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     {/* <NavLink className={"dropdown-item"} to={'/me'}>Update Profile</NavLink> */}
+                    {user && user.role !== "customer" &&(<NavLink className={"dropdown-item"} to={`/${user.role}`}>{user.name}</NavLink>)}
                     <NavLink className={"dropdown-item"} to={'/change-password'}>Change Password</NavLink>
                     <NavLink className={"dropdown-item"} to={'/logout'}>Logout</NavLink>
                   </Dropdown.Menu>
                 </Dropdown>
               </>
             }
-            <NavLink to={"/cart"} className={"nav-link"}><i className="fa-solid fa-cart-shopping"></i>{/*<Badge pill bg="danger">9</Badge>*/}</NavLink>
+            {
+              user ? <>
+                <NavLink to={"/cart"} className={"nav-link"}><i className="fa-solid fa-cart-shopping"></i>{/*<Badge pill bg="danger">9</Badge>*/}</NavLink>
+              </> : <></>
+            }
 
             <Nav.Link onClick={changeTheme}><i className="fa-solid fa-circle-half-stroke"></i></Nav.Link>
           </Nav>

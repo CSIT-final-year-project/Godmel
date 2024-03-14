@@ -33,8 +33,8 @@ const TopHeaderComponent = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
                 {/* <NavLink className={"dropdown-item"} to={'/me'}>Update Profile</NavLink> */}
-                <NavLink className={"dropdown-item"} to={'/change-password'}>Change Password</NavLink>
-                <NavLink className={"dropdown-item"} to={'/logout'}>Logout</NavLink>
+                <NavLink className={"dropdown-item"} to={'/' + user.role + 'change-password'}>Change Password</NavLink>
+                <NavLink className={"dropdown-item"} to={'/' + user.role + 'logout'}>Logout</NavLink>
             </Dropdown.Menu>
         </Dropdown>
     

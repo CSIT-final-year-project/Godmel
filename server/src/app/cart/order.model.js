@@ -10,6 +10,10 @@ const OrderSchema = new mongoose.Schema({
         ref: "User",
         required: true
     },
+    deliveryAddress: {
+        type: String,
+        required: true
+    },
     seller: {
         type: mongoose.Types.ObjectId,
         ref: "User",

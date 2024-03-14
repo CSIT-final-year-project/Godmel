@@ -15,9 +15,23 @@ class OrderService extends HttpService {
         }
     }
 
+    transactionLists = async() => {
+        try {
+            const data = await this.getRequest(
+                '/v1/cart/completed-order',
+                {auth: true}
+            )
+            console.log(data)
+            return data;
+        } catch(exception) {
+            console.log(exception)
+            throw exception;
+        }
+    }
+
     markDispatched = async(id, data)=>{
         try {
-            let res = await this.patchRequest(
+            let res = await this.putRequest(
                 '/v1/cart/dispatched/' + id, data,
                 {auth: true}
             )

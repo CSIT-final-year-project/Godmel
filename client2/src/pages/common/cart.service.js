@@ -39,6 +39,19 @@ class CartService extends HttpService{
             throw except
         }
     }
+
+    addToCart = async(data)=>{
+        try{
+            const response = await this.postRequest(
+                "/v1/cart/add", data,
+                {auth: true}
+            )
+            return response
+        }
+        catch(except){
+            throw(except)
+        }
+    }
 }
 
 const cartSvc = new CartService();

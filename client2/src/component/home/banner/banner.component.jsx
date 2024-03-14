@@ -27,6 +27,7 @@ const HomePageBanner = ()=>{
             if(data.result){
                 setBanner(data.result)
             }
+            console.log(data)
         }
         catch(except){
             toast.error("Error fetching Banner list")

@@ -2,7 +2,7 @@ const authSvc = require("./auth.service");
 const mailSvc = require('../../services/mail.service')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { generateRandomString } = require("../../config/helpers");
+const { generateRandomString, getTokenFromHeaders } = require("../../config/helpers");
 const { response } = require("express");
 require('dotenv').config()
 
@@ -92,19 +92,22 @@ class AuthController{
                         const token = jwt.sign({
                             userId: userDetail._id,
                         }, process.env.JWT_SECRET, {
-                            expiresIn: '1h'
+                            expiresIn: '1d'
                         });
         
                         const refreshToken = jwt.sign({
                             userId: userDetail._id,
                         }, process.env.JWT_SECRET, {
-                            expiresIn: '1d'
+                            expiresIn: '2d'
                         });
                         const user = {
                             userId: userDetail._id,
                             name: userDetail.name, 
                             role: userDetail.role
                         }
+
+                        console.log("User: ", user);
+                        console.log("Userdetail: ", userDetail);
                         const patData = {
                             user: user,
                             token: token,
@@ -149,21 +152,43 @@ class AuthController{
 
     logout = async(req, res, next)=>{
         try{
-            let userDetail = await authSvc.getUserByFilter({_id: req.authUser._id});
-            if(userDetail){
-                let patData = await authSvc.getPatDataByFilter({userId: req.authUser._id});
-                if(patData){
-                    let logout = await authSvc.deletePatData({userId: req.authUser._id});
+            let token = getTokenFromHeaders(req);
+
+            if(token===null){
+                next({code: 400, message: "Please login First"});
+            }
+            else{
+                token = token.split(" ").pop();
+                if(!token){
+                    next({code: 400, message: "Token Required"})
+                }
+                else{
+                    let PATdata = await authSvc.getPatDataByFilter({token: token});
+                    if(PATdata){
+                        let logout = await authSvc.deletePatData({token: token});
                     res.json({
                         result: logout,
                         message: "Logged Out Successfully",
                         meta: null
                     })
+                    }
+                    else{
+                        next({code: 400, message: "Token expired"});
+                    }
                 }
             }
-            else{
-                next({code: 401, message: "User doesn't exist anymore"});
-            }
+
+            // let userDetail = await authSvc.getUserByFilter({_id: req.authUser._id});
+            // if(userDetail){
+            //     let patData = await authSvc.getPatDataByFilter({user:{userId: req.authUser._id}});
+            //     if(patData){
+
+                    
+            //     }
+            // }
+            // else{
+            //     next({code: 401, message: "User doesn't exist anymore"});
+            // }
         }
         catch(except){
             console.log("logout: ", except);

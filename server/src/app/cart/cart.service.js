@@ -16,8 +16,7 @@ class CartService{
         }
     }
 
-    upsertCart =
-     async (existingCart, updateBody) => {
+    upsertCart = async (existingCart, updateBody) => {
         try {
             let cart = null 
             if(existingCart) {
@@ -41,10 +40,12 @@ class CartService{
 
     getByFilter = async(filter) => {
         try {
+            console.log(filter)
             const cartDetail = await CartModel.find(filter)
-                .populate('productId', ['_id','title', 'price','discount', 'afterDiscount'])
                 .populate("buyerId", ['_id','name'])
-                .populate("seller", ['_id','name'])
+                // .populate("seller", ['_id','name'])
+                // .populate("orderId", ['_id','deliveryAddress'])
+                // console.log("cartDetail", cartDetail)
             return cartDetail
         } catch(exception) {
             throw exception

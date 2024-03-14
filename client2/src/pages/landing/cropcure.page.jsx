@@ -1,5 +1,4 @@
-import { Container, Row, Col, Button, Form } from "react-bootstrap"
-import { Title, Divider } from "../../component/common/heading/heading.component"
+import { Spinner } from "react-bootstrap"
 import CropCureForm from "../../component/common/predictor/crop-cure-form.component"
 import { useState } from "react"
 import { toast } from "react-toastify"
@@ -45,6 +44,12 @@ const CropCurePage = () => {
         <CropCureForm submitHandler={cropSubmit} loading={loading}/>
         <span>
             {
+                loading ? <>
+                <div className="text-center">
+                    <Spinner variant="dark"></Spinner>
+                </div>
+            </> : <>
+            {
                 predict ? <>
                         <div className="text-center text-danger">
                             <h6>
@@ -53,6 +58,8 @@ const CropCurePage = () => {
                             </h6>
                         </div>
                     </> : <></>
+            }
+            </>
             }
         </span>
     </>)

@@ -9,6 +9,9 @@ const { MulterError } = require('multer');
 const { ZodError } = require('zod');
 const cors = require('cors');
 
+//static serving
+app.use("/asset", express.static("public/uploads"));
+
 //cors
 app.use(cors())
 
@@ -16,8 +19,7 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-//static serving
-app.use("/asset", express.static("public/uploads"));
+
 
 //api
 app.use('/api/v1', router);

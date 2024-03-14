@@ -167,7 +167,7 @@ const CartList = () => {
                             <td>
                               <Image onError={(e) => {
                                 e.target.src = "https://dummyimage.com/50x30/f2f2f2/000000&text=No+image+found"
-                              }} style={{ maxWidth: "50px" }} fluid src={import.meta.env.VITE_IMAGE_URL + 'product/' + row.image} />
+                              }} style={{ maxWidth: "50px" }} fluid src={import.meta.env.VITE_IMAGE_URL + 'product/' + row.detail.image} />
                             </td>
                             <td>{row.detail.title}</td>
                             <td>{row.rate}</td>

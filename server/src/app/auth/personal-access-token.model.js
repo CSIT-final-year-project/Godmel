@@ -13,10 +13,9 @@ const patSchemaDef = new mongoose.Schema({
             min: 2,
             max: 50
         },
-        email: {
+        role: {
             type: String,
-            require: true,
-            unique:true
+            enum: ['admin', 'farmer', 'customer'],
         },
     },
     token: {

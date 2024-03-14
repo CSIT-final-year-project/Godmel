@@ -19,7 +19,7 @@ const checkLogin = async (req, res, next)=>{
                 let PATdata = await authSvc.getPatDataByFilter({token: token});
                 if(PATdata){
                     let data = jwt.verify(token, process.env.JWT_SECRET);
-                    let userDetail = await authSvc.getUserByFilter({_id: PATdata.userId});
+                    let userDetail = await authSvc.getUserByFilter({_id: PATdata.user.userId});
                     if(userDetail){
                         req.authUser = userDetail;
                         next();

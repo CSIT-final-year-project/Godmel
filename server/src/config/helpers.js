@@ -1,4 +1,10 @@
 const fs = require('fs');
+
+const generateRandomNumber = (limit, lower=0)=>{
+    let posn = Math.ceil(lower + (Math.random()*limit));
+    return posn;      
+}
+
 const generateRandomString = (len = 100)=>{
     let chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let random = "";
@@ -32,4 +38,4 @@ const deleteFile = (path, filename)=>{
         fs.unlinkSync(path+filename);
 }
 
-module.exports = {generateRandomString, getTokenFromHeaders, deleteFile}
+module.exports = {generateRandomNumber, generateRandomString, getTokenFromHeaders, deleteFile}

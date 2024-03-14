@@ -21,12 +21,12 @@ router.get('/:slug/slug', productCtrl.getBySlug);
 router.route('/')
     .get(
         CheckLogin,
-        CheckPermission('farmer'),
+        CheckPermission(['farmer', 'admin']),
         productCtrl.listAllProducts
     )
     .post(
         CheckLogin,
-        CheckPermission('farmer'),
+        CheckPermission(['farmer', 'admin']),
         dirSetup,
         uploader.array('images'),
         ValidateRequest(ProductValidatorSchema),
@@ -40,12 +40,12 @@ router.route('/:id/reviews')
 router.route('/:id')
     .get(
         CheckLogin,
-        CheckPermission('farmer'),
+        CheckPermission(['farmer', 'admin']),
         productCtrl.getById
     )
     .put(
         CheckLogin,
-        CheckPermission('farmer'),
+        CheckPermission(['farmer', 'admin']),
         checkAccess(productSvc),
         dirSetup,
         uploader.array('images'),
@@ -54,7 +54,7 @@ router.route('/:id')
     )
     .delete(
         CheckLogin,
-        CheckPermission('farmer'),
+        CheckPermission(['farmer', 'admin']),
         checkAccess(productSvc),
         productCtrl.deleteById
     )

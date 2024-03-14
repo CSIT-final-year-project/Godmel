@@ -2,6 +2,7 @@ const asynchandler = require('express-async-handler')
 const bcrypt = require('bcryptjs');
 const UserModel = require('./user.model');
 const { deleteFile } = require('../../config/helpers');
+require('dotenv').config()
 
 class UserController {
     createAdmin = asynchandler(async (req, res, next) => {
@@ -12,8 +13,9 @@ class UserController {
         }
         else {
             payload.image = req.file.filename;
+            
+            const password = payload.password??process.env.DEF_ADMIN_PASS;
             payload.password = bcrypt.hashSync(payload.password, 10);
-            payload.status = 'active';
 
             let admin = new UserModel(payload);
             let response = await admin.save();
@@ -94,7 +96,9 @@ class UserController {
             result: users,
             message: "All users fetched",
             meta: {
-                totalUsers: await UserModel.countDocuments()
+                currentPage: page,
+                total: await UserModel.countDocuments(),
+                limit: 10
             }
         })
     })

@@ -18,6 +18,8 @@ import LogoutPage from "../pages/common/logout";
 import OrderList from "../pages/cms/order/order-list.page";
 import OrderLayout from "../pages/cms/order/order.layout";
 import CartPage from "../pages/common/cart";
+import TransactionLayout from "../pages/cms/order/transaction.layout";
+import TransactionList from "../pages/cms/order/transaction-list.page";
 
 
 export const Routing = ()=>{
@@ -70,6 +72,9 @@ export const Routing = ()=>{
                         <Route path="order" element={<OrderLayout/>}>
                             <Route index element={<OrderList/>}></Route>
                         </Route>
+                        <Route path="transaction" element={<TransactionLayout/>}>
+                            <Route index element={<TransactionList/>}></Route>
+                        </Route>
                         <Route path="change-password" element={<ChangePassword/>}/>
                         <Route path="*" element={<Error404 />}/>
                     </Route>
@@ -85,11 +90,18 @@ export const Routing = ()=>{
                             <Route path=":id" element={<product.ProductEdit />}></Route>
                         </Route>
 
+                        <Route path="order" element={<OrderLayout/>}>
+                            <Route index element={<OrderList/>}></Route>
+                        </Route>
+                        <Route path="transaction" element={<TransactionLayout/>}>
+                            <Route index element={<TransactionList/>}></Route>
+                        </Route>
+                        <Route path="change-password" element={<ChangePassword/>}/>
                         <Route path="*" element={<Error404 />}/>
                     </Route>
 
                     <Route path="/change-password" element={<ChangePassword/>}/>
-                    <Route path="/logout" element={<LogoutPage/>}/>
+                    <Route path="/logout" element={<LogoutPage />}/>
                     <Route path="/cart" element={<CartPage/>}/>
                     <Route path="*" element={<Error404/>}/>
                 </Routes>

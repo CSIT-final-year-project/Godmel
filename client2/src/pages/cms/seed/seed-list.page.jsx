@@ -67,8 +67,8 @@ const SeedList = () => {
               <Table size="sm" bordered hover striped>
                 <thead className="table-dark">
                   <tr>
-                    <th>Title</th>
-                    <th>Link</th>
+                    <th>Seed</th>
+                    <th>Price</th>
                     <th>Image</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -88,14 +88,12 @@ const SeedList = () => {
                             <tr key={ind}>
                               <td>{row.title}</td>
                               <td>
-                                <a target="_seed" href={row.url}>
-                                  {row.url}
-                                </a>
+                                {row.price + "(-" + row.discount + "% off) = " + row.afterDiscount}
                               </td>
                               <td>
                                 <Image onError={(e) => {
                                   e.target.src="https://dummyimage.com/50x30/f2f2f2/000000&text=No+image+found"
-                                }} style={{maxWidth: "50px"}} fluid src={import.meta.env.VITE_IMAGE_URL+'seed/'+row.images[0]} />
+                                }} style={{maxWidth: "50px"}} fluid src={import.meta.env.VITE_IMAGE_URL+'product/'+row.images[0]} />
                               </td>
                               <td>
                                 <Badge bg={`${row.status === 'active'? 'success' : 'danger'}`}>
