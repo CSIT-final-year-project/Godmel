@@ -35,5 +35,10 @@ Farmers are not being paid deserving amount due to involvement of middlemen in g
 ## How to run
     1. Clone Project
     2. Go to server folder, rename .env.example to .env and setup your own env variable
-    3. run server with 
+    3. run server with 'npm start'
+    4. Go to client2 folder, rename .env.example to .env and setup env variables
+    5. run client2 with 'yarn dev'
+    6. Go to mlserver folder
+    7. run mlserver with 'python app.py'
+    8. navigate 'https://localhost:5174'
         
