@@ -28,7 +28,12 @@ Farmers are not being paid deserving amount due to involvement of middlemen in g
 
 
 ## Folder Architecture
-    client - Front end code using react js and bootstrap
+    client2 - Front end code using react js and bootstrap
     server - Backend code using node js, express and mongodb
     mlserver - Machine learning code for precision agriculture using python
+
+## How to run
+    1. Clone Project
+    2. Go to server folder, rename .env.example to .env and setup your own env variable
+    3. run server with 
         
