@@ -41,6 +41,11 @@ const CartSchema = new mongoose.Schema({
         ref: "User",
         require: false
     },
+    payment: {
+        type: String, 
+        enum:  ['paid', 'due'],
+        default: "due"
+    },
     status: {
         type: String, 
         enum:  ['new', 'dispatched'],

@@ -28,7 +28,7 @@ const CropCureForm = ({submitHandler, loading=false})=>{
         <Container className="my-5">
             <Row>
                 <Col sm={12} md={{ offset: 3, span: 6 }}>
-                    <Title>Crop Recommendation</Title>
+                    <Title>Cure Recommendation</Title>
                 </Col>
             </Row>
             <Divider />

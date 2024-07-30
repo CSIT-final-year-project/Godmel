@@ -36,6 +36,7 @@ const SetPasswordPage = () => {
         } catch(exception) {
             // 
             toast.error(exception.message)
+            console.log("here")
             navigate('/')
         }
     }

@@ -3,6 +3,7 @@ import { Title, Divider } from "../../../../component/common/heading/heading.com
 import { ButtonComponent } from "../../../../component/common/button/button.component";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import authSvc from "../auth.service";
 
 const ForgetPassword = () =>{
     const [data, setData] =  useState()
@@ -18,8 +19,7 @@ const ForgetPassword = () =>{
     const handleSubmit = (e) => {
         e.preventDefault()
         try{
-            // TODO: Success
-            toast.error("An email with the instructions has been sent to the registered user you provided.", {
+            toast.error("Check email for resetting the password", {
                 theme: "light"
             })
         } catch(exception){

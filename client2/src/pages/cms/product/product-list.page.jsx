@@ -13,6 +13,8 @@ const ProductList = () => {
   const [data, setData] = useState()
   const [loading, setLoading] = useState(true)
   const [pagination, setPagination] = useState()
+  let [user, setUser ] = useState({ userId: "", name: "", role: "" });
+
 
   const listProducts = async ({page=1,search="", limit=10}) => {
     try {
@@ -34,6 +36,9 @@ const ProductList = () => {
   useEffect(() => {
     // api consume 
       listProducts({page: 1})
+      let userDetail = localStorage.getItem("_user");
+        userDetail = JSON.parse(userDetail);
+        setUser(userDetail);
   }, [])
 
   const handleDelete = async(id) => {
@@ -59,7 +64,7 @@ const ProductList = () => {
           <Card className="mb-4">
             <Card.Header>
               <Heading type={"h4"} className={"float-start"} value={"Product List"}></Heading>
-              <NavLink className={"btn btn-sm btn-success float-end"} to="/admin/product/create">
+              <NavLink className={"btn btn-sm btn-success float-end"} to={"/"+user.role+"/product/create"}>
                 <i className="fa fa-plus"></i>&nbsp;Add Product
               </NavLink>
             </Card.Header>
@@ -67,8 +72,8 @@ const ProductList = () => {
               <Table size="sm" bordered hover striped>
                 <thead className="table-dark">
                   <tr>
-                    <th>Title</th>
-                    <th>Link</th>
+                    <th>Product</th>
+                    <th>Price</th>
                     <th>Image</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -88,9 +93,7 @@ const ProductList = () => {
                             <tr key={ind}>
                               <td>{row.title}</td>
                               <td>
-                                <a target="_product" href={row.url}>
-                                  {row.url}
-                                </a>
+                                {row.price + "(-" + row.discount + "% off) = " + row.afterDiscount}
                               </td>
                               <td>
                                 <Image onError={(e) => {

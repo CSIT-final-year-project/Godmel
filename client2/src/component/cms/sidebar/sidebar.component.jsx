@@ -69,12 +69,7 @@ const SidebarComponent = () => {
                             Home
                         </NavLink>
                         <NavHeading>Features</NavHeading>
-                        <NavLink className={"nav-link"} to={"/" + user.role + "/banner"}>
-                            <NavLinkIcon>
-                                <FaImages />
-                            </NavLinkIcon>
-                            Banner Management
-                        </NavLink>
+                        
                         <NavLink className={"nav-link"} to={"/" + user.role + "/product"}>
                             <NavLinkIcon>
                                 <FaStore />
@@ -83,6 +78,12 @@ const SidebarComponent = () => {
                         </NavLink>
                         {
                             user.role === "admin" ? <>
+                                <NavLink className={"nav-link"} to={"/" + user.role + "/banner"}>
+                                    <NavLinkIcon>
+                                        <FaImages />
+                                    </NavLinkIcon>
+                                    Banner Management
+                                </NavLink>
                                 <NavLink className={"nav-link"} to={"/" + user.role + "/seed"}>
                                     <NavLinkIcon>
                                         <FaLeaf />

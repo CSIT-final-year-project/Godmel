@@ -20,12 +20,13 @@ import OrderLayout from "../pages/cms/order/order.layout";
 import CartPage from "../pages/common/cart";
 import TransactionLayout from "../pages/cms/order/transaction.layout";
 import TransactionList from "../pages/cms/order/transaction-list.page";
+import ForgetPassword from "../pages/home/auth/forget-password/forget-password.page";
 
 
 export const Routing = ()=>{
     return (
         <>
-            <ToastContainer/>
+            <ToastContainer position="bottom-right"/>
             <BrowserRouter>
                 <Routes>
 
@@ -38,6 +39,7 @@ export const Routing = ()=>{
                         <Route path="/register" element={<RegistrationPage/>}/>
                         <Route path="/login" element={<LoginPage/>}/>
                         <Route path="/verify-token/:token" element={<SetPasswordPage/>}/>
+                        <Route path="/forget-password" element={<ForgetPassword/>}/>
                     </Route>
 
                     {/* admin authorization need */}
@@ -100,9 +102,16 @@ export const Routing = ()=>{
                         <Route path="*" element={<Error404 />}/>
                     </Route>
 
+                    <Route path="/customer" element={<PermissionCheck accessBy={"customer"}  Component={<layouts.HomeLayout/>}>Content</PermissionCheck>}>
+                        <Route index element={<landing.FarmerMarketPage/>}/>
+                    </Route>
+                    <Route path="/cart" element={<layouts.HomeLayout/>}>
+                        <Route index element={<CartPage/>}/>
+                    </Route>
+
                     <Route path="/change-password" element={<ChangePassword/>}/>
                     <Route path="/logout" element={<LogoutPage />}/>
-                    <Route path="/cart" element={<CartPage/>}/>
+                    {/* <Route path="/cart" element={<CartPage/>}/> */}
                     <Route path="*" element={<Error404/>}/>
                 </Routes>
             </BrowserRouter>

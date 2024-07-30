@@ -53,6 +53,8 @@ def crop_prediction():
         K = int(request.form['potassium'])
         ph = float(request.form['ph'])
         rainfall = float(request.form['rainfall'])
+        # temperature = float(request.form['temperature'])
+        # humidity = float(request.form['humidity'])
 
         city = request.form.get("city")
 
@@ -60,6 +62,7 @@ def crop_prediction():
             temperature, humidity = weather_fetch(city)
 
         feature_list = [N, P, K, temperature, humidity, ph, rainfall]
+        print("Input data: ", feature_list)
         single_pred = np.array(feature_list).reshape(1, -1)
 
         scaled_features = ms.transform(single_pred)
@@ -79,6 +82,7 @@ def crop_prediction():
 
         response = {
             "result": result,
+            "feature_list": feature_list,
             "message": "Crop Predicted"
         }
 

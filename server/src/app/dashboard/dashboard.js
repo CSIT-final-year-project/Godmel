@@ -8,13 +8,13 @@ const UserModel = require('../user/user.model');
 
 const router = require('express').Router();
 
-router.get('/admin-dashboard', checkLogin, checkPermission('admin'), async (req, res, next)=>{
-    const banner = await BannerModel.countDocuments();
-    const product = await ProductModel.countDocuments();
-    const seed = await SeedModel.countDocuments();
+router.get('/admin-dashboard', checkLogin, checkPermission(['admin', 'farmer']), async (req, res, next)=>{
+    const banner = await BannerModel.countDocuments({createdBy: req.authUser._id});
+    const product = await ProductModel.countDocuments({createdBy: req.authUser._id});
+    const seed = await SeedModel.countDocuments({createdBy: req.authUser._id});
     const user = await UserModel.countDocuments();
-    const pendingOrder = await CartModel.countDocuments({status: "new"});
-    const completedOrder = await CartModel.countDocuments({status: "dispatched"});
+    const pendingOrder = await CartModel.countDocuments({status: "new", seller: req.authUser._id});
+    const completedOrder = await CartModel.countDocuments({status: "dispatched", seller: req.authUser._id});
 
     res.json({
         result: {

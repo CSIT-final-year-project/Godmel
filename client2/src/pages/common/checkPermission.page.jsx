@@ -23,7 +23,7 @@ const PermissionCheck = ({
         } catch(exception) {
             localStorage.removeItem("_au")
             toast.error("You are not logged In!!")
-            navigate("/login")
+            navigate("/")
         } finally{
             setLoading(false)
         }
@@ -33,7 +33,7 @@ const PermissionCheck = ({
         let token = localStorage.getItem("_au")
         if(!token) {
             toast.error("You are not logged In!!")
-            navigate("/login")
+            navigate("/")
         } else {
             getLoggedInUser()
         }

@@ -17,6 +17,7 @@ const ProductForm = ({submitEvent, loading=false, detail=null}) => {
         status: Yup.string().matches(/^(active|inactive)$/, {message: "Status can only be active or inactive"}),
         price: Yup.number().min(1).required(),
         discount: Yup.number().min(0).default(0).max(100).optional(),
+        images: Yup.array().optional()
     })
     const {register,setValue, handleSubmit, setError, formState: {errors}} =useForm({
         resolver: yupResolver(productSchema)
@@ -35,21 +36,31 @@ const ProductForm = ({submitEvent, loading=false, detail=null}) => {
         formData.append("discount", data.discount)
         formData.append("sellerId", user.userId)
         formData.append("status", data.status)
-        data.images.map((img) => {
-            formData.append("images", img, img.filename)
-        })
 
-        submitEvent(formData)
+            // if (data.images && Array.isArray(data.images)) {
+            //     data.images.forEach((img, index) => {
+            //         // Append image with a unique name
+            //         formData.append(`image${index}`, img, img.name);
+            //     });
+            // }
+            if(data.images && Array.isArray(data.images) ) {
+                data.images.map((img) => {
+                    formData.append("images", img, img.filename)
+                }) 
+            }
+
+            submitEvent(formData)
+        
     }
 
     useEffect(() => {
         if(detail) {
             (Object.keys(detail)).map((field, ind) => {
-                if(field !== 'image') {
+                if(field !== 'images') {
                     setValue(field, detail[field])
                 }
             })
-            setThumb(detail.image)
+            setThumb(detail.images)
         }
     }, [detail])
 

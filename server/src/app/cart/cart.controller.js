@@ -277,6 +277,43 @@ class CartController{
             next(exception)
         }
     }
+
+    pay = async(req, res, next) => {
+        try {
+            let user = req.authUser;
+            let id = req.params.id;
+            // orderId = new mongoose.Types.ObjectId(orderId)
+            let filter = {_id: id};
+            // if(user.role !== 'admin') {
+                // filter = {
+                //     ...filter,
+                //     seller: user._id
+                // }
+            // }
+            console.log(filter)
+            let detail = await cartSvc.getByFilter(filter);
+            console.log(detail)
+            if(detail[0]){
+                console.log(filter)
+                let response = await CartModel.findOne(filter)
+                // Update the payment status to "paid"
+                response.payment = 'paid';
+                
+                await response.save();
+                res.json({
+                    result: response, 
+                    message: "paid",
+                    meta: null
+                })
+            }
+            else{
+                next({code: 400, message: "Error making changes"})
+            }
+            
+        } catch(exception) {
+            next(exception)
+        }
+    }
 }
 
 const cartCtrl = new CartController()

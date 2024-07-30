@@ -23,6 +23,11 @@ app.use(express.urlencoded({extended: false}));
 
 //api
 app.use('/api/v1', router);
+app.get('/api/v1/paypal', (req, res, next)=>{
+    res.json({
+        clientId: process.env.PAYPAL_CLIENT_ID
+    });
+})
 
 //404 handling
 app.use((req, res, next)=>{

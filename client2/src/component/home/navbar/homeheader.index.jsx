@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Nav, Navbar, Container, Dropdown, Button, Image, Modal } from "react-bootstrap";
+import { Nav, Navbar, Container, Dropdown, Image } from "react-bootstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../../config/theme.context";
 import logo from "../../../assets/logo.png"
@@ -7,7 +7,7 @@ import authSvc from "../../../pages/home/auth/auth.service";
 import { toast } from "react-toastify";
 const HomeHeaderComponent = () => {
 
-  const [user, setUser] = useState()
+  const [user, setUser] = useState({ userId: "", name: "", role: "" })
 
   const { theme, toggleTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
@@ -16,22 +16,29 @@ const HomeHeaderComponent = () => {
     toggleTheme(theme);
   }
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const loggedInUser = await authSvc.getLoggedInUser();
-        setUser(loggedInUser);
-      } catch (error) {
+  const getLoggedInUser = async () => {
+    try {
+        const response = await authSvc.getLoggedInUser()
+
+        setUser(response.result)
+    } catch(exception) {
         localStorage.removeItem("_au")
-        console.log(error)
         navigate("/")
+    } finally{
+        setLoading(false)
+    }
+}
 
-        // toast.error(error.message);
-      }
-    };
-
-    fetchUserData();
-  }, []);
+useEffect(() => {
+  let token = localStorage.getItem("_au")
+  if(!token) {
+      toast.error("You are not logged In!!")
+      navigate("/")
+  } else {
+      getLoggedInUser()
+  }
+}, [])
+  // console.log(user)
   return (<>
     <Navbar
       expand="lg"
@@ -47,43 +54,41 @@ const HomeHeaderComponent = () => {
             <NavLink to="/" className="nav-link">Home</NavLink>
             <NavLink to="/crop-recommendation" className={"nav-link"}>Crop Recommendation</NavLink>
             <NavLink to="/crop-cure" className={"nav-link"}>Crop Cure</NavLink>
-            <NavLink to="/farmer-market" className={"nav-link"}>Farmer Market</NavLink>
+            <NavLink to="/farmer-market" className={"nav-link"}>Marketplace</NavLink>
 
           </Nav>
 
           <Nav className="float-end">
+          {
+              user ? <>
+              <NavLink to={'/' + user.role} className="nav-link">
+                      {user.name}
+                    </NavLink>
+                <NavLink to={"/cart"} className={"nav-link"}><i className="fa-solid fa-cart-shopping"></i>{/*<Badge pill bg="danger">9</Badge>*/}</NavLink>
+              </> : <></>
+            }
+
+            <Nav.Link onClick={changeTheme}><i className="fa-solid fa-circle-half-stroke"></i></Nav.Link>
             {
               (!user || user.userId === "") ? <>
                 <NavLink to="/login" className="nav-link">Login</NavLink>
                 <NavLink to="/register" className={"nav-link"}>SignUp</NavLink>
               </> : <>
-                {
-                  user && user.role !== "customer" && (
-                    <NavLink to={`/${user.role}`} className="nav-link">
-                      {user.name}
-                    </NavLink>
-                  )
-                }
+
                 <Dropdown className="ms-auto ms-md-0 me-3 me-lg-4" align={"end"}>
-                  <Dropdown.Toggle variant="link" className=" " id="dropdown-basic">
+                  <Dropdown.Toggle variant="link" className="" id="dropdown-basic">
                     <i className="fas fa-user fa-fw"></i>
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     {/* <NavLink className={"dropdown-item"} to={'/me'}>Update Profile</NavLink> */}
-                    {user && user.role !== "customer" &&(<NavLink className={"dropdown-item"} to={`/${user.role}`}>{user.name}</NavLink>)}
+                    
                     <NavLink className={"dropdown-item"} to={'/change-password'}>Change Password</NavLink>
                     <NavLink className={"dropdown-item"} to={'/logout'}>Logout</NavLink>
                   </Dropdown.Menu>
                 </Dropdown>
               </>
             }
-            {
-              user ? <>
-                <NavLink to={"/cart"} className={"nav-link"}><i className="fa-solid fa-cart-shopping"></i>{/*<Badge pill bg="danger">9</Badge>*/}</NavLink>
-              </> : <></>
-            }
-
-            <Nav.Link onClick={changeTheme}><i className="fa-solid fa-circle-half-stroke"></i></Nav.Link>
+            
           </Nav>
         </Navbar.Collapse>
       </Container>

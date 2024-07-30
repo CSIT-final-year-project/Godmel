@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Button, Dropdown, Nav, Navbar } from "react-bootstrap";
+import { Button, Dropdown, Image, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import logo from "../../../assets/logo.png"
 
 const TopHeaderComponent = () => {
     const sidebarToggle = (e) => {
@@ -18,7 +19,7 @@ const TopHeaderComponent = () => {
     return (<>
     <Navbar className="sb-topnav" expand={"lg"} variant="dark" bg="dark">
         <NavLink className={"navbar-brand ps-3"} to={"/"+user.role}>
-            {user.role} Panel
+            <Image src={logo} alt="logo" height={40} /> &nbsp; {user.role} Panel
         </NavLink>
         <Button variant="link" size="sm" className="order-1 order-lg-0 me-4 me-lg-0"
             onClick={sidebarToggle}
@@ -33,8 +34,8 @@ const TopHeaderComponent = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
                 {/* <NavLink className={"dropdown-item"} to={'/me'}>Update Profile</NavLink> */}
-                <NavLink className={"dropdown-item"} to={'/' + user.role + 'change-password'}>Change Password</NavLink>
-                <NavLink className={"dropdown-item"} to={'/' + user.role + 'logout'}>Logout</NavLink>
+                <NavLink className={"dropdown-item"} to={'/change-password'}>Change Password</NavLink>
+                <NavLink className={"dropdown-item"} to={'/logout'}>Logout</NavLink>
             </Dropdown.Menu>
         </Dropdown>
     

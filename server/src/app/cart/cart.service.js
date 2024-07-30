@@ -42,9 +42,9 @@ class CartService{
         try {
             console.log(filter)
             const cartDetail = await CartModel.find(filter)
-                .populate("buyerId", ['_id','name'])
+                .populate("buyerId", ['_id','name', 'email'])
                 // .populate("seller", ['_id','name'])
-                // .populate("orderId", ['_id','deliveryAddress'])
+                .populate("orderId", ['_id','deliveryAddress'])
                 // console.log("cartDetail", cartDetail)
             return cartDetail
         } catch(exception) {

@@ -51,6 +51,14 @@ const AdminDashboard = () => {
                   <Col lg={3} md={6}>
                     <Card className="my-2">
                       <Card.Body>
+                        <h5 className="card-title">Total Banners</h5>
+                        <p className="card-text">{dashboardData.result.banner}</p>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                  <Col lg={3} md={6}>
+                    <Card className="my-2">
+                      <Card.Body>
                         <h5 className="card-title">Total Users</h5>
                         <p className="card-text">{dashboardData.result.user}</p>
                       </Card.Body>

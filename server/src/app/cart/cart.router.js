@@ -34,5 +34,6 @@ router.post("/order",
 router.get("/incoming-order", CheckLogin, CheckPermission(['admin', 'farmer']), cartCtrl.incomingOrder)
 router.get("/completed-order", CheckLogin, CheckPermission(['admin', 'farmer']), cartCtrl.listTransactions)
 router.put("/dispatched/:id", CheckLogin, CheckPermission(['admin', 'farmer']), cartCtrl.dispatched)
+router.put("/pay/:id", cartCtrl.pay)
 
 module.exports = router;

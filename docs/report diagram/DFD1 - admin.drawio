@@ -1,0 +1,203 @@
+<mxfile host="app.diagrams.net" modified="2024-03-21T14:50:04.441Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0" etag="3GYPTFGFu1JC7mmDh37V" version="24.0.7" type="device">
+  <diagram name="Page-1" id="sgm0bCreORFc6CYc5tO8">
+    <mxGraphModel dx="1042" dy="569" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="VitaJnBrRxuQDdF12Pux-1" value="Admin" style="html=1;dashed=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-36" value="Read banner data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-2" target="VitaJnBrRxuQDdF12Pux-1">
+          <mxGeometry x="-0.5848" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-48" value="Send banner data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-2" target="VitaJnBrRxuQDdF12Pux-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="588" y="583" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-2" value="6.0&lt;div&gt;Banner Management&lt;/div&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" vertex="1" parent="1">
+          <mxGeometry x="395" y="550" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-37" value="Send Seed data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-3" target="VitaJnBrRxuQDdF12Pux-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="578" y="173" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-3" value="2.0&lt;div&gt;Seed Management&lt;/div&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" vertex="1" parent="1">
+          <mxGeometry x="395" y="140" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-40" value="Send product data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-4" target="VitaJnBrRxuQDdF12Pux-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="583" y="283" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-4" value="3.0&lt;div&gt;Product Management&lt;/div&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" vertex="1" parent="1">
+          <mxGeometry x="395" y="250" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-43" value="Send user data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-5" target="VitaJnBrRxuQDdF12Pux-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="583" y="378" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-5" value="4.0&lt;div&gt;User Management&lt;/div&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" vertex="1" parent="1">
+          <mxGeometry x="395" y="350" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-46" value="Update order status" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-6" target="VitaJnBrRxuQDdF12Pux-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="588" y="483" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-6" value="5.0&lt;div&gt;Order Management&lt;/div&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" vertex="1" parent="1">
+          <mxGeometry x="395" y="450" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-8" value="Banner Store" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" vertex="1" parent="1">
+          <mxGeometry x="700" y="575" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-9" value="Seed Store" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="165" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-10" value="Product Store" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" vertex="1" parent="1">
+          <mxGeometry x="690" y="275" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-11" value="User Store" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" vertex="1" parent="1">
+          <mxGeometry x="690" y="370" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-12" value="Order Store" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" vertex="1" parent="1">
+          <mxGeometry x="700" y="475" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-20" value="Check Credentials" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-14" target="VitaJnBrRxuQDdF12Pux-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="573" y="58" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-23" value="Authorize" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-14" target="VitaJnBrRxuQDdF12Pux-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="397" y="78" />
+              <mxPoint x="263" y="78" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-14" value="1.0&lt;div&gt;Login&lt;/div&gt;" style="shape=ellipse;html=1;dashed=0;whiteSpace=wrap;aspect=fixed;perimeter=ellipsePerimeter;" vertex="1" parent="1">
+          <mxGeometry x="385" y="25" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-16" value="User Store" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;left=0;" vertex="1" parent="1">
+          <mxGeometry x="680" y="50" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-21" value="Reply" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.938;entryY=0.6;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-16" target="VitaJnBrRxuQDdF12Pux-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-22" value="Provide Credentials" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.022;entryY=0.293;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-1" target="VitaJnBrRxuQDdF12Pux-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="48" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-24" value="Create update or delete seed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.047;entryY=0.325;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-1" target="VitaJnBrRxuQDdF12Pux-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="166" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-25" value="Read seed" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.884;entryY=1.016;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-3" target="VitaJnBrRxuQDdF12Pux-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-26" value="Create update or delete product" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=-0.003;entryY=0.28;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-1" target="VitaJnBrRxuQDdF12Pux-4">
+          <mxGeometry x="0.2437" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-27" value="Update or delete user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.028;entryY=0.3;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-1" target="VitaJnBrRxuQDdF12Pux-5">
+          <mxGeometry x="0.3666" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="374" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-28" value="Process order" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.018;entryY=0.28;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-1" target="VitaJnBrRxuQDdF12Pux-6">
+          <mxGeometry x="0.5057" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="65" y="472" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-29" value="Create update or delete banner" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.008;entryY=0.29;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-1" target="VitaJnBrRxuQDdF12Pux-2">
+          <mxGeometry x="0.5812" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-30" value="Read Product" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.652;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-4" target="VitaJnBrRxuQDdF12Pux-1">
+          <mxGeometry x="-0.2221" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="105" y="310" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-33" value="Read User data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.038;exitY=0.73;exitDx=0;exitDy=0;entryX=0.356;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-5" target="VitaJnBrRxuQDdF12Pux-1">
+          <mxGeometry x="-0.3819" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-34" value="Read order details" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.028;exitY=0.74;exitDx=0;exitDy=0;entryX=0.132;entryY=1.016;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-6" target="VitaJnBrRxuQDdF12Pux-1">
+          <mxGeometry x="-0.5351" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-39" value="Retrieve seed data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.997;entryY=0.645;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-9" target="VitaJnBrRxuQDdF12Pux-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="192" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-42" value="Retrieve product data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.938;entryY=0.625;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-10" target="VitaJnBrRxuQDdF12Pux-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-45" value="Retrieve user data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.978;entryY=0.59;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-11" target="VitaJnBrRxuQDdF12Pux-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="397" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-47" value="Retrieve order details" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.947;entryY=0.68;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-12" target="VitaJnBrRxuQDdF12Pux-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="504" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VitaJnBrRxuQDdF12Pux-49" value="Retrieve banner data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.978;entryY=0.69;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="VitaJnBrRxuQDdF12Pux-8" target="VitaJnBrRxuQDdF12Pux-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="605" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

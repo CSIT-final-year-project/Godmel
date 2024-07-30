@@ -64,7 +64,7 @@ const OrderList = () => {
                 <th>Product</th>
                 <th>Quantity</th>
                 <th>Customer</th>
-                <th>Delivery at</th>
+                <th>Payment</th>
                 <th>Amount</th>
                 <th>Status</th>
                 <th>Dispatch</th>
@@ -84,8 +84,12 @@ const OrderList = () => {
                         <tr key={ind}>
                           <td>{row.detail.title}</td>
                           <td>{row.qty}</td>
-                          <td>{row.buyerId.name}</td>
-                          <td>{row.orderId.deliveryAddress}</td>
+                          <td>Name: {row.buyerId.name} <br/>
+                          Contact: {row.buyerId.email}<br/>
+                          Delivery at: {row.orderId.deliveryAddress}</td>
+                          <td><Badge bg={`${row.payment === 'paid' ? 'success' : 'warning'}`}>
+                              {row.payment}
+                            </Badge></td>
                           <td>{row.amount}</td>
                           <td>
                             <Badge bg={`${row.status === 'dispatched' ? 'success' : 'warning'}`}>
